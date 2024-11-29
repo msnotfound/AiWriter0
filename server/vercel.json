@@ -4,6 +4,12 @@
       "api/index.js": {
         "runtime": "nodejs20.x"
       }
-    }
+    },
+    "routes": [
+        {
+          "src": "/",
+          "dest": "api/index.js"
+        }
+      ]
   }
   
