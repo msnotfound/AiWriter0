@@ -2,11 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 // const passport = require("passport");
 const session = require("express-session");
-const authRoutes = require("../routes/auth");
+const authRoutes = require("../../routes/auth");
 
 require("dotenv").config();
 const cors = require("cors");
-const User = require('../models/User');
+const User = require('../../models/User');
 
 
 const app = express();
