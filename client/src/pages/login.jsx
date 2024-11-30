@@ -86,15 +86,26 @@ const Login = () => {
     e.preventDefault();
     const { email, password } = formData;
     // Handle form submission here, e.g., send data to a server
+    try {
     const response = await api.post('/login', { email, password });
     if (response.status === 201) {
-      setUser({ email }); // Update the user context
+      setUser(response.data); // Update the user context
       navigate('/dashboard/ai-writer'); // Redirect to the dashboard page
+    }else {
+      // Handle unsuccessful login (potentially unauthenticated response)
+      throw new Error('Invalid credentials or server error');
     }
-  };
+  } catch (error) {
+    // Generic error handling (improve if possible)
+    console.error('Error during login:', error);
+    alert('An error occurred while logging in. Please check your credentials and try again.');
+  } finally {
+    // Optional: Reset any loading state or perform cleanup
+  }
+};
 
   return (
-    <SignupContainer><Nav><NavContainer></NavContainer>
+    <SignupContainer><Nav style={{height:'150px'}}><NavContainer></NavContainer>
         </Nav>
       <SignupHeading>Login</SignupHeading>
       <SignupForm onSubmit={handleSubmit}>
@@ -107,7 +118,7 @@ const Login = () => {
           onChange={handleChange}
         />
         <FormInput
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
           value={formData.password}

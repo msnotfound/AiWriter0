@@ -33,8 +33,9 @@ const Account = () => {
   const handleOnclick = async () => {
     try {
       await api.post('/logout');
-      alert('Logged out');
+      
       window.location.href = '/login';
+      alert('Logged out');
     } catch (error) {
       console.error('Error logging out:', error);
     }

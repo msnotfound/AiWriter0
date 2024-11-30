@@ -9,7 +9,7 @@ router.post('/signup', async (req, res) => {
     const user = new User({ email, password});
     await user.save();
     req.session.userId = user._id;
-    res.status(201).send("Succes signup");
+    res.status(201).json({email: user.email, id: user._id});
 });
 
 router.post('/login', async (req, res) => {
@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
         return res.status(400).json({ message: 'Invalid email or password' });
       }
       req.session.userId = user._id;
-      res.status(201).send("succes login");
+      res.status(201).json({email: user.email, id: user._id});
     //   json({ user: { email: user.email } })
     } catch (error) {
       res.status(500).json({ message: 'Error logging in', error });
@@ -62,7 +62,7 @@ router.get('/account', async (req, res) => {
   
       // Respond with user email
       res.json({ email: user.email , id: req.session.userId});
-      console.log('Session UserID:', req.session.userId);
+      
 
     } catch (error) {
       console.error('Error fetching user:', error);

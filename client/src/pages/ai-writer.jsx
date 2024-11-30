@@ -1,8 +1,9 @@
 import  { useState } from 'react';
 import styled from 'styled-components';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-import axios from 'axios';
-
+const genAI = new GoogleGenerativeAI("AIzaSyBjtuwev4LAYYJzDG4fefOtUfLQjicBgNU");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const AIWriterContainer = styled.div`
   padding: 20px;
   text-align: center;
@@ -54,29 +55,12 @@ const AIWriter = () => {
     }
     setLoading(true);
     try {
+      const prompt = 'Write a twitter post (please generate a single response) on ' + topic;
       
-      const apiKey = "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"; // Replace with your actual Hugging Face API key
-      const headers = {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      };
-  
-      const data = {
-        inputs: `Write a short Twitter post about: ${topic}`,
-        parameters: {
-          max_length: 200,
-          temperature: 0.7,
-        },
-      };
-  
-      const response = await axios.post(
-        "https://api-inference.huggingface.co/models/google/gemma-2-2b-it",
-        data,
-        { headers }
-      );
-  
-      // Extract the generated text
-      setPost(response.data[0]?.generated_text || "No response generated");
+      const result = await model.generateContent(prompt);
+      setPost(result.response.text());
+      
+      
     } catch (error) {
       console.error("Error generating content:", error);
       alert("An error occurred while generating the content. Please try again.");

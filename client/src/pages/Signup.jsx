@@ -61,7 +61,7 @@ max-width: 1400px;
 padding:0 25px;
 display: flex;
 
-height: 100%%
+height: 100%
 `;
 const Buttonlink = styled(linkr)`
 text-decoration: none;
@@ -88,13 +88,13 @@ const Signup = () => {
     // Handle form submission here, e.g., send data to a server
     const response = await api.post('/signup', { email, password });
     if (response.status === 201) {
-      setUser({ email }); // Update the user context
+      setUser(response.data); // Update the user context
       navigate('/dashboard/ai-writer'); // Redirect to the dashboard page
     }
   };
 
   return (
-    <SignupContainer><Nav><NavContainer></NavContainer>
+    <SignupContainer><Nav style={{height:'150px'}}><NavContainer ></NavContainer>
         </Nav>
       <SignupHeading>Sign Up</SignupHeading>
       <SignupForm onSubmit={handleSubmit}>
@@ -107,7 +107,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         <FormInput
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
           value={formData.password}
