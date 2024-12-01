@@ -23,9 +23,13 @@ const Button = styled.button`
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   margin: 10px;
+  &:hover {
+    transform: scale(1.05);
+   transition: transform 0.3s ease-in-out; 
+  }
 `;
 
 const Account = () => {

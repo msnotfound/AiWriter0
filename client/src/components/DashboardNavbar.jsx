@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import LogoImg from "/utils/Images/Logo.png";
+import LogoImg from "../assets/Logo.png";
 
 
 

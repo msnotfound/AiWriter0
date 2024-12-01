@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import LogoImg from "/utils/Images/Logo.png";
+import LogoImg from "/utils/Images/Logo1.png";
 import {Link as linkr} from "react-router-dom";
 import Button from "./button";
 import { MenuRounded } from "@mui/icons-material";

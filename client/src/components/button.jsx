@@ -50,7 +50,7 @@ ${({ flex }) =>
 `}
 `;
 
-const button = ({
+const utton = ({
   text,
   isLoading,
   isDisabled,
@@ -81,4 +81,4 @@ const button = ({
   );
 };
 
-export default button;
+export default utton;

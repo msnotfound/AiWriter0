@@ -42,11 +42,15 @@ const FormButton = styled.button`
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.10);
+    transition: all 0.3s ease;
+  }
 `;
 const Nav = styled.div`
-background-color: ${({theme})=>theme.navbar};
+
 height: 100px;
 display: flex;
 flex-direction: column;
@@ -113,7 +117,7 @@ const Signup = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <FormButton type="submit">Sign Up</FormButton>
+        <FormButton type="submit" >Sign Up</FormButton>
       </SignupForm>
       <Nav style={{height:'50px'}}/>
       <Buttonlink  to="/login">

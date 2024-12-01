@@ -18,7 +18,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import { Link,useLocation } from 'react-router-dom';
-import LogoImg from "/utils/Images/Logo.png";
+import LogoImg from "/utils/Images/Logo1.png";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import { useContext } from 'react';
@@ -33,14 +33,14 @@ const drawerWidth = 240;
 const NavLogo = styled('div')`
 width: 100%;
 display: flex;
-flex: 1;
+overflow: hidden;
 align-items: center;
  padding: 0 0px;
 top: 0;
 `;
 
 const Logo = styled('img')`
-height: 70px;
+height: 60px;
 `;
 
 const openedMixin = (theme) => ({
@@ -77,7 +77,7 @@ const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1,
-  backgroundColor: 'black',
+  backgroundColor: "rgba(28, 30, 39)",
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -182,7 +182,7 @@ export default function Dashboard() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} >
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>

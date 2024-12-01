@@ -5,9 +5,12 @@ import api from '/utils/api/axios';
 import { UserContext } from '../contexts/UserContext';
 
 const NotesContainer = styled.div`
+display: flex;
+flex: 1;
+flex-direction: column;
   padding: 20px;
   text-align: center;
-  
+  align-items: center;
 `;
 
 const Heading = styled.h2`
@@ -30,8 +33,12 @@ const Button = styled.button`
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+   transition: transform 0.3s ease-in-out; 
+  }
 `;
 
 const Notes = () => {
@@ -64,7 +71,7 @@ const Notes = () => {
       <Heading>Notes</Heading>
       <Input
         type="text"
-        placeholder="Enter a note"
+        placeholder="Enter notes about your social media journey..."
         value={note}
         onChange={(e) => setNote(e.target.value)}
         onBlur={() => document.activeElement.blur()} // Remove focus from input field

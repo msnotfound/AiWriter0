@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Hero from './Hero';
+import FeaturesCard from './Features';
 const HomeContainer = styled.div`
   // Your custom styles here
   padding: 20px;
@@ -33,11 +34,13 @@ const HomeButton = styled.button`
 const Home = () => {
   return (
     <HomeContainer>
-      <HomeHeading>Welcome to Our Website</HomeHeading>
+      <Hero />
+      
+      {/* <HomeHeading>Welcome to Our Website</HomeHeading>
       <HomeParagraph>
         This is the home page of our website. Here, you can find information about our products, services, and team.
       </HomeParagraph>
-      <HomeButton>Learn More</HomeButton>
+      <HomeButton>Learn More</HomeButton> */}
     </HomeContainer>
   );
 };
